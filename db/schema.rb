@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_01_08_101952) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "airports", force: :cascade do |t|
     t.string "name"
     t.string "city"
@@ -21,9 +24,9 @@ ActiveRecord::Schema.define(version: 2021_01_08_101952) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "flight_id", null: false
+    t.bigint "flight_id", null: false
     t.integer "price"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "name"
     t.integer "no_of_seats"
     t.integer "total"
@@ -40,7 +43,7 @@ ActiveRecord::Schema.define(version: 2021_01_08_101952) do
   end
 
   create_table "flights", force: :cascade do |t|
-    t.integer "plane_id", null: false
+    t.bigint "plane_id", null: false
     t.integer "from_id"
     t.integer "to_id"
     t.string "available_pnrs"
@@ -63,14 +66,14 @@ ActiveRecord::Schema.define(version: 2021_01_08_101952) do
   end
 
   create_table "planes_seat_configs", id: false, force: :cascade do |t|
-    t.integer "plane_id"
-    t.integer "seat_config_id"
+    t.bigint "plane_id"
+    t.bigint "seat_config_id"
     t.index ["plane_id"], name: "index_planes_seat_configs_on_plane_id"
     t.index ["seat_config_id"], name: "index_planes_seat_configs_on_seat_config_id"
   end
 
   create_table "seat_configs", force: :cascade do |t|
-    t.integer "category_id", null: false
+    t.bigint "category_id", null: false
     t.integer "seats_per_row"
     t.integer "no_of_rows"
     t.integer "exceptions"
