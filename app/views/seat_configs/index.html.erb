@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Seat Configs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Seats per row</th>
+      <th>No of rows</th>
+      <th>Exceptions</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @seat_configs.each do |seat_config| %>
+      <tr>
+        <td><%= seat_config.category.name %></td>
+        <td><%= seat_config.seats_per_row %></td>
+        <td><%= seat_config.no_of_rows %></td>
+        <td><%= seat_config.exceptions %></td>
+        <td><%= link_to 'Show', seat_config %></td>
+        <td><%= link_to 'Edit', edit_seat_config_path(seat_config) %></td>
+        <td><%= link_to 'Destroy', seat_config, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Seat Config', new_seat_config_path %>

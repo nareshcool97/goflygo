@@ -1,0 +1,21 @@
+
+<h1><%= @welcome %></h1>
+
+<% if current_user.nil? %>
+	<%= link_to new_user_session_path, class: 'login-button' do %>Sign in<% end %>
+<% else %>
+	<%= link_to destroy_user_session_path, method: :delete do %>Log out<% end %>
+<% end %>
+
+<table>
+<% if current_user&.admin? %>
+ <tr>
+ <td><%= link_to 'Airports', airports_path %></td>
+ <td><%= link_to 'Planes', planes_path %></td>
+ <td><%= link_to 'Seating config', seat_configs_path %></td>
+ <td><%= link_to 'Flights', flights_path %></td>
+ </tr>
+ <% else %>
+ <td><%= link_to 'Book a ticket', bookings_path %></td>
+ <% end %>
+</table>

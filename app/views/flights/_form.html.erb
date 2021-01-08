@@ -1,0 +1,51 @@
+<%= form_with(model: flight) do |form| %>
+  <% if flight.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(flight.errors.count, "error") %> prohibited this flight from being saved:</h2>
+
+      <ul>
+        <% flight.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <%= form.label "Date of tour" %>
+  <%= form.datetime_field :flight_date, as: :date_time_picker %>
+
+  <div class="field">
+    <%= form.label :plane_id %>
+     <%= form.select(:plane_id, Plane.all.collect {|u| [u.name, u.id]}, :prompt => 'Select') %> 
+  </div>
+
+  <div class="field">
+    <%= form.label :from_id %>
+     <%= form.select(:from_id, Airport.all.collect {|u| [u.name, u.id]}, :prompt => 'Select') %> 
+  </div>
+
+  <div class="field">
+    <%= form.label :to_id %>
+     <%= form.select(:to_id, Airport.all.collect {|u| [u.name, u.id]}, :prompt => 'Select') %> 
+  </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :flight_no %>
+    <%= form.text_field :flight_no %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+  </div>
+
+   <div class="field">
+    <%= form.label :status %>
+    <%= form.select :status, :collection => Flight.statuses.keys.to_a %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

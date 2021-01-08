@@ -1,0 +1,38 @@
+<%= form_with(model: seat_config) do |form| %>
+  <% if seat_config.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(seat_config.errors.count, "error") %> prohibited this seat_config from being saved:</h2>
+
+      <ul>
+        <% seat_config.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.select(:category_id, Category.all.collect {|u| [u.name, u.id]}, :prompt => 'Select') %>
+  
+  </div>
+
+  <div class="field">
+    <%= form.label :seats_per_row %>
+    <%= form.number_field :seats_per_row %>
+  </div>
+
+  <div class="field">
+    <%= form.label :no_of_rows %>
+    <%= form.number_field :no_of_rows %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exceptions %>
+    <%= form.number_field :exceptions %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

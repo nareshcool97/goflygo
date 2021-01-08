@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @seat_config.category&.name %>
+</p>
+
+<p>
+  <strong>Seats per row:</strong>
+  <%= @seat_config.seats_per_row %>
+</p>
+
+<p>
+  <strong>No of rows:</strong>
+  <%= @seat_config.no_of_rows %>
+</p>
+
+<p>
+  <strong>Exceptions:</strong>
+  <%= @seat_config.exceptions %>
+</p>
+
+<%= link_to 'Edit', edit_seat_config_path(@seat_config) %> |
+<%= link_to 'Back', seat_configs_path %>

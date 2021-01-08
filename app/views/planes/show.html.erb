@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @plane.plane_type %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @plane.name %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @plane.model %>
+</p>
+
+<p>
+  <strong>Seating:</strong>
+    <table>
+  <% @plane.seat_configs.each do |sa| %>
+
+  <tr>
+   <td> Class: <%= sa.category.name %></td>
+    <td>Seats: <%= sa.seats_per_row %></td>
+   <td> Rows:  <%= sa.no_of_rows %></td>
+     </tr>
+     
+     <% end %>
+     </table>
+</p>
+
+<%= link_to 'Edit', edit_plane_path(@plane) %> |
+<%= link_to 'Back', planes_path %>

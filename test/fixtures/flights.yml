@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  plane: one
+  from_id: 1
+  to_id: 1
+  available_pnrs: MyString
+  booked_pnrs: MyString
+  flight_no: MyString
+  price: 1
+
+two:
+  plane: two
+  from_id: 1
+  to_id: 1
+  available_pnrs: MyString
+  booked_pnrs: MyString
+  flight_no: MyString
+  price: 1

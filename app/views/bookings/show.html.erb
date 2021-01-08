@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Flight:</strong>
+  <%= @booking.flight.to_fro %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @booking.price %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @booking.user.email %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @booking.name %>
+</p>
+
+<p>
+  <strong>No of seats:</strong>
+  <%= @booking.no_of_seats %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @booking.total %>
+</p>
+
+<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Back', bookings_path %>

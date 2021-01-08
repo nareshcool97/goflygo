@@ -1,0 +1,39 @@
+<%= form_with(model: plane) do |form| %>
+  <% if plane.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(plane.errors.count, "error") %> prohibited this plane from being saved:</h2>
+
+      <ul>
+        <% plane.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :plane_type %>
+    <%= form.text_field :plane_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model %>
+  </div>
+
+   <div class="field">
+    <%= form.label :seat_config_ids %>
+    <%= form.select(:seat_config_ids, @seat_configs.collect {|u| [u.category.name, u.id]},{ :prompt => "Please select"}, { :multiple => true, :size => 3 } ) %>
+  
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
