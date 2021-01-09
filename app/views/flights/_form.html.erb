@@ -12,7 +12,7 @@
   <% end %>
  
   <%= form.label "Date of tour" %>
-  <%= form.datetime_field :flight_date, as: :date_time_picker %>
+  <%= form.datetime_field :flight_date, class: 'flatpickr' %>
 
   <div class="field">
     <%= form.label :plane_id %>

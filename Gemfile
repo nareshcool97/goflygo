@@ -31,8 +31,6 @@ gem 'toastr-rails'
 gem 'jquery-rails'
 
 gem 'cancancan'
-
-gem 'datetime_picker_input'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

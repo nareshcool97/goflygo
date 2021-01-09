@@ -15,5 +15,18 @@ ActiveStorage.start()
 //= require jquery
 //= require jquery_ujs
 //= require toastr
-//= require datetime_picker_input 
 global.toastr = require("toastr")
+
+
+require("@rails/ujs").start()
+require("turbolinks").start()
+require("@rails/activestorage").start()
+require("channels")
+require("bootstrap")
+require("flatpickr")
+import flatpickr from "flatpickr";
+document.addEventListener("turbolinks:load", () => {
+    $('[data-tooltip-display="true"]').tooltip(),
+    flatpickr("[class='flatpickr']", {})
+})
+require("../stylesheets/application.scss")

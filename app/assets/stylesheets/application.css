@@ -13,6 +13,5 @@
  *= require_tree .
  *= require_self
  *= require toastr
- *= require datetime_picker_input
  */
  
