@@ -9,7 +9,7 @@ default: &default
   password: <%= ENV.fetch("POSTGRES_HOST", "postgres") %>
   adapter: postgresql
   encoding: unicode
-  host: <%= ENV.fetch("POSTGRES_HOST", "localhost") %>
+  host: <%= ENV.fetch("HEROKU_POSTGRESQL_SILVER_URL", "postgres://qdufajoslckaha:71d002b23b6015e0239b327f8d2f2e86c7c6f57a0ff4e863fb5395278e99ca2e@ec2-3-231-241-17.compute-1.amazonaws.com:5432/dat0rs09um18lp") %>
   port: <%= ENV.fetch("POSTGRES_PORT", "5432") %>
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
